@@ -1,0 +1,3 @@
+ERROR[2025-02-16 21:29:41]: [FireDAC][Phys][SQLite] ERROR: unable to open database file
+ERROR[2025-02-16 21:34:08]: [FireDAC][Phys][SQLite]-310. Cannot execute command returning result sets. Hint: use Open method for SELECT-like commands
+ERROR[2025-02-16 21:34:38]: [FireDAC][Phys][SQLite]-310. Cannot execute command returning result sets. Hint: use Open method for SELECT-like commands

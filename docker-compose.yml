@@ -1,0 +1,34 @@
+services:
+  serverws:
+    image: serverws
+    container_name: server_ws
+    restart: always
+    networks:
+      - network_ws
+    volumes:
+      - //c/Docker/volume/serverws_app:/usr/src/app
+      - //c/Docker/volume/serverws_data:/usr/src/app/data
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+      - "9002:9002"
+    entrypoint: ["/bin/sh", "-c", "cp /usr/src/app/*.sh /home/scripts/ && chmod +x /home/scripts/*.sh && /home/scripts/start.sh"]
+
+  redis:
+    image: redis
+    container_name: server_redis
+    restart: always
+    networks:
+      - network_ws
+    volumes:
+      - //c/Docker/volume/serverredis_app:/usr/src/app
+      - //c/Docker/volume/serverredis_data:/usr/src/app/data
+    working_dir: /usr/src/app
+    ports:
+      - "6379:6379"
+
+networks:
+  network_ws:
+    name: network_ws  
+    driver: bridge
+    external: false
